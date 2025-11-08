@@ -391,7 +391,7 @@
 
         /* Statistics Section */
         .statistics {
-            background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.9)), url('public/BEM2.webp') center/cover no-repeat;
+            background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.8)), url('public/backround 2.jpeg') center/cover no-repeat;
             padding: 100px 0;
             position: relative;
             color: var(--white-color);
@@ -605,21 +605,32 @@
             font-weight: 700;
         }
 
-        .experience-gallery {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            max-width: 1000px;
-            margin: 0 auto;
+     .experience-gallery {
+    display: flex;           /* Ubah dari grid */
+    flex-wrap: wrap;         /* Izinkan item turun ke baris baru */
+    justify-content: center; /* Ini kuncinya! */
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+
+        .gallery-item figcaption {
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-size: 0.9rem;
         }
 
-        .gallery-item {
-            position: relative;
-            border-radius: 15px;
-            overflow: hidden;
-            transition: transform 0.3s ease;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-        }
+       .gallery-item {
+    /* Tambahkan properti ini */
+    width: 300px; 
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
 
         .gallery-item:hover {
             transform: translateY(-10px);
@@ -627,7 +638,7 @@
 
         .gallery-item img {
             width: 100%;
-            height: 250px;
+            height: 200px;
             object-fit: cover;
             transition: transform 0.5s ease;
             cursor: pointer;
@@ -1034,7 +1045,7 @@
         footer {
             background-color: var(--dark-color);
             color: var(--white-color);
-            padding: 2rem 0;
+            padding: 1rem 0;
             text-align: center;
         }
 
@@ -1206,6 +1217,23 @@
                 height: 320px;
             }
         }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .skill-category:nth-child(odd):last-child {
+                grid-column: span 2;
+                justify-self: center;
+                max-width: 50%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .experience-gallery {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+        }
     </style>
 </head>
 <body>
@@ -1216,7 +1244,7 @@
                 <div class="close-menu"><i class="fas fa-times"></i></div>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
-                <li><a href="#experience1">Experience</a></li>
+                <li><a href="#experience">Experience</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#languages">Languages</a></li>
                 <li><a href="#final">Contact</a></li>
@@ -1296,7 +1324,7 @@
                             <i class="fas fa-check-circle"></i>
                             <div>
                                 <h4>Fast Learner</h4>
-                                <p>Quickly master new software (like Figma) and internal procedures to ensure maximum efficiency.</p>
+                                <p>Quickly master new software (like Adobe Photoshop) and internal procedures to ensure maximum efficiency.</p>
                             </div>
                         </li>
                     </ul>
@@ -1322,6 +1350,10 @@
         </div>
     </section>
 
+    <div class="section-title">
+        <h2>Internship Experience</h2>
+    </div>
+
     <section id="experience1" class="experience-section">
         <div class="experience-explanation">
             <div class="container">
@@ -1330,6 +1362,7 @@
                     <h4>Intern at Kementerian Sekretariat Negara</h4>
                     <p>Managed official documents, prepared risk analysis reports, and served as a facilitator and MC for key events, gaining valuable experience in a high-level government setting. This internship provided me with deep insights into governmental operations and the importance of meticulous documentation and protocol management.</p>
                     <p>I had the opportunity to work closely with senior officials, coordinate important meetings, and contribute to policy discussions. The experience enhanced my understanding of public administration and strengthened my ability to work in structured, hierarchical environments.</p>
+                    <a href="https://drive.google.com/drive/folders/1C5Bbr0F7zw5XcYH8rMTleL_d9loHstWY?usp=sharing" target="blank" class="btn btn-primary" style="margin-top: 20px;">See more Project & Documentation</a>
                 </div>
             </div>
         </div>
@@ -1341,18 +1374,113 @@
                 </div>
                 <div class="experience-gallery">
                     <div class="gallery-item">
-                        <img src="public/setneg1.webp" alt="Government Work 1" class="zoomable-image" loading="lazy">
+                        <figure>
+                            <img src="public/setneg1.webp" alt="Pertemuan dg kepala Setkab mayor Tedy" class="zoomable-image" loading="lazy">
+                            <figcaption>Pertemuan dg kepala Setkab mayor Tedy</figcaption>
+                        </figure>
                     </div>
                     <div class="gallery-item">
-                        <img src="public/setneg2.webp" alt="Government Work 2" class="zoomable-image" loading="lazy">
+                        <figure>
+                            <img src="public/setneg2.webp" alt="Dokumentasi saat berada digedung 3" class="zoomable-image" loading="lazy">
+                            <figcaption>Dokumentasi saat berada digedung 3</figcaption>
+                        </figure>
                     </div>
                     <div class="gallery-item">
-                        <img src="public/setneg3.webp" alt="Government Work 3" class="zoomable-image" loading="lazy">
+                        <figure>
+                            <img src="public/Hasil kerja Pembuatan Modul Penerjemahan Arabic.jpg" alt="Hasil kerja Pembuatan Modul Penerjemahan Arabic" class="zoomable-image" loading="lazy">
+                            <figcaption>Hasil kerja Pembuatan Modul Penerjemahan Arabic</figcaption>
+                        </figure>
+                    </div>
+                     <div class="gallery-item">
+                        <figure>
+                            <img src="public/Menemani Bu Indri (Kabid Aselon 3) sesi wawancara penerjemah Arab.jpg" alt="Menemani Bu Indri (Kabid Aselon 3) sesi wawancara penerjemah Arab" class="zoomable-image" loading="lazy">
+                            <figcaption>Menemani Bu Indri (Kabid Aselon 3) sesi wawancara penerjemah Arab</figcaption>
+                        </figure>
+                    </div>
+                    <div class="gallery-item">
+                        <figure>
+                            <img src="public/Saat jadi MC kegiatan ujikom penerjemah.jpg" alt="Saat jadi MC kegiatan ujikom penerjemah" class="zoomable-image" loading="lazy">
+                            <figcaption>Saat jadi MC kegiatan ujikom penerjemah</figcaption>
+                        </figure>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <section id="experience_pnm" class="experience-section">
+        <div class="experience-explanation">
+            <div class="container">
+                <div class="experience-explanation-content">
+                    <h3>BUMN Internship</h3>
+                    <h4>PT. Permodalan Nasional Madani</h4>
+                    <p>As an intern at PT. Permodalan Nasional Madani, I was involved in various aspects of project management and IT support. I contributed to the development of internal modules, assisted in the coordination of IT projects, and provided administrative support to the team. This experience sharpened my technical skills and my ability to work in a corporate environment.</p>
+                    <a href="https://drive.google.com/drive/folders/1JUf3nWoJYeTOA0OgBigDS65QGwFoco6i?usp=drive_link" target="blank" class="btn btn-primary" style="margin-top: 20px;">See more Project & Documentation</a>
+                </div>
+            </div>
+        </div>
+        <div class="experience-gallery-section">
+            <div class="container gallery-container">
+                <div class="gallery-title">
+                    <h3>BUMN Internship Gallery</h3>
+                </div>
+                <div class="experience-gallery">
+                    <div class="gallery-item">
+                        <img src="public/Meeting Project bersama tim IT PNM.jpg" alt="PNM Internship" class="zoomable-image" loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="public/Tugas kelompok IT  PNM.jpg" alt="PNM Internship" class="zoomable-image" loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="public/Dokumentasi Magang di PNM saat kerja.jpg" alt="PNM Internship" class="zoomable-image" loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="public/Perayaan Ultah saya di PNM.jpg" alt="PNM Internship" class="zoomable-image" loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="public/PNM Perpisahan.jpg" alt="PNM Internship" class="zoomable-image" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience3" class="experience-section">
+        <div class="experience-explanation">
+            <div class="container">
+                <div class="experience-explanation-content">
+                    <h3>Internship Aboard</h3>
+                    <h4>Educational Experience Teaching in Makkah</h4>
+                    <p>Taught multiple subjects and assisted in organizing large-scale school events, honing my skills in education, logistics, and cross-cultural communication. This international teaching experience provided me with unique perspectives on education in diverse cultural contexts.</p>
+                    <p>I developed curriculum materials, managed classroom dynamics, and coordinated with parents and administration. The role enhanced my adaptability, cultural sensitivity, and ability to communicate complex ideas effectively. It also reinforced my passion for education and lifelong learning.</p>
+                    <a href="https://drive.google.com/drive/folders/1rLYom2jI4v4YL5X-Ua9mWU48754S_W49?usp=drive_link" target="blank" class="btn btn-primary" style="margin-top: 20px;">See more Project & Documentation</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="experience-gallery-section">
+            <div class="container gallery-container">
+                <div class="gallery-title">
+                    <h3>Educational Experience Gallery</h3>
+                </div>
+                <div class="experience-gallery">
+                    <div class="gallery-item">
+                        <img src="public/magangmekkah1.webp" alt="Education Work 1" class="zoomable-image" loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="public/magangmekkah2.webp" alt="Education Work 2" class="zoomable-image" loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="public/magangmekkah3.webp" alt="Education Work 3" class="zoomable-image" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-title" style="margin-top: 60px;">
+        <h2>Organizational Experience</h2>
+    </div>
 
     <section id="experience2" class="experience-section">
         <div class="experience-explanation">
@@ -1387,32 +1515,33 @@ departments within the faculty.</p>
         </div>
     </section>
 
-    <section id="experience3" class="experience-section">
+    <section id="experience_ikaba" class="experience-section">
         <div class="experience-explanation">
             <div class="container">
                 <div class="experience-explanation-content">
-                    <h3>Educational Experience</h3>
-                    <h4>Teacher at Makkah Overseas Indonesian School (SILN)</h4>
-                    <p>Taught multiple subjects and assisted in organizing large-scale school events, honing my skills in education, logistics, and cross-cultural communication. This international teaching experience provided me with unique perspectives on education in diverse cultural contexts.</p>
-                    <p>I developed curriculum materials, managed classroom dynamics, and coordinated with parents and administration. The role enhanced my adaptability, cultural sensitivity, and ability to communicate complex ideas effectively. It also reinforced my passion for education and lifelong learning.</p>
+                    <h3>Humas IKABA Sastra Arab</h3>
+                    <h4>Public Relations at the Arabic Literature Student Association</h4>
+                    <p>As a member of the Public Relations division, I was responsible for managing communication channels, creating promotional materials, and organizing events to foster a strong community among students. This role enhanced my communication and teamwork skills.</p>
                 </div>
             </div>
         </div>
-        
         <div class="experience-gallery-section">
             <div class="container gallery-container">
                 <div class="gallery-title">
-                    <h3>Educational Experience Gallery</h3>
+                    <h3>IKABA Experience Gallery</h3>
                 </div>
                 <div class="experience-gallery">
                     <div class="gallery-item">
-                        <img src="public/magangmekkah1.webp" alt="Education Work 1" class="zoomable-image" loading="lazy">
+                        <img src="public/WhatsApp Image 2025-11-03 at 10.13.30 AM.jpeg" alt="IKABA event" class="zoomable-image" loading="lazy">
                     </div>
                     <div class="gallery-item">
-                        <img src="public/magangmekkah2.webp" alt="Education Work 2" class="zoomable-image" loading="lazy">
+                        <img src="public/WhatsApp Image 2025-11-03 at 10.13.31 AM (1).jpeg" alt="IKABA event" class="zoomable-image" loading="lazy">
                     </div>
                     <div class="gallery-item">
-                        <img src="public/magangmekkah3.webp" alt="Education Work 3" class="zoomable-image" loading="lazy">
+                        <img src="public/WhatsApp Image 2025-11-03 at 10.13.31 AM.jpeg" alt="IKABA event" class="zoomable-image" loading="lazy">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="public/WhatsApp Image 2025-11-03 at 10.15.06 AM.jpeg" alt="IKABA event" class="zoomable-image" loading="lazy">
                     </div>
                 </div>
             </div>
@@ -1618,13 +1747,14 @@ departments within the faculty.</p>
                         <a href="https://www.linkedin.com/in/syifa-luthfiyah-a52a6123b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">
                             <i class="fab fa-linkedin-in"></i>
                         </a>
-                        <a href="https://www.instagram.com/syifalfth" target="_blank">
+                        <a href="https://www.instagram.com/syifalthyh?igsh=MW00Nm51dHc4d3N5Yw==" target="_blank">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="https://twitter.com/syifalfth" target="_blank">
-                            <i class="fab fa-twitter"></i>
+                        <a href="https://tiktok.com/@ncipuu09" target="_blank">
+                            <i class="fab fa-tiktok"></i>
                         </a>
                     </div>
+                    <p style="margin-top: 20px;">By : Tarasyah.production</p>
                 </div>
             </div>
         </div>
